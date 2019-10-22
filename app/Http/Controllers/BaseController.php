@@ -93,7 +93,7 @@ class BaseController extends Controller
 
     public function admin()
     {
-        return view('frontend.frontend.admin');
+        return redirect(route('mentors'));
     }
 
     public function contact()
