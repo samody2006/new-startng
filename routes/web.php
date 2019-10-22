@@ -70,3 +70,17 @@ Route::get('/faq', 'BaseController@faq')->name('faq');
 Route::get('/find-course', 'BaseController@findcourse')->name('find-course');
 Route::get('/blog', 'BaseController@blog')->name('blog');
 Route::get('/curriculum', 'BaseController@curriculum')->name('curriculum');
+
+/**
+ *
+ * SuperAdmin Routes
+ */
+
+
+Route::group(['middleware' => ['auth', 'admin']], function() {
+    Route::get('/mentors', 'AdminController@index')->name('mentors');
+    Route::get('/mentors/create', 'AdminController@create')->name('mentors.create');
+    Route::post('/mentors', 'AdminController@store')->name('mentors.store');
+    Route::get('/mentor/{id}/detail', 'AdminController@show')->name('mentor.show');
+    Route::get('/mentor/{id}', 'AdminController@destroy')->name('mentor.destroy');
+});
