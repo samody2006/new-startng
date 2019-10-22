@@ -424,6 +424,7 @@
         @endif
 
     @endforeach
+    
 
     {{--<div class="col-md-4">--}}
     {{--<div class="card">--}}
@@ -477,7 +478,10 @@
     {{--</div>--}}
 </div>
 <br>
-
+<!----pagination/---->
+<div class="container">
+{{$courses->links()}}
+</div>
  <!--  -->
         <section class="beginning-lesson">
             <div class="row no-gutters">

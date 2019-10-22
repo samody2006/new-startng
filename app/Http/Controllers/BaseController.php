@@ -15,9 +15,10 @@ class BaseController extends Controller
 {
     public function index()
     {
-        $courses = DB::table('courses')->get();
+        $courses = DB::table('courses')->paginate(6);
 
         return view('frontend.frontend.index',compact('courses'));
+        
     }
 
     public function registerCourses($id)
