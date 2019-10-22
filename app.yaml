@@ -21,13 +21,13 @@ env_variables:
   DB_CONNECTION: mysql
   #CACHE_DRIVER: file
   #SESSION_DRIVER: file
-  DB_HOST: remotemysql.com
+  DB_HOST: us-cdbr-iron-east-05.cleardb.net
   DB_PORT: 3306
-  DB_DATABASE: qpruF6R5WY
-  DB_USERNAME: qpruF6R5WY
-  DB_PASSWORD: nOmxn1n2Wy
-  DB_SOCKET: /cloudsql/startng:us-central1:hngseven
-  #DB_SOCKET: /cloudsql/farmcorps:us-central1:farmcorps
+  DB_DATABASE: heroku_d774e1d0228bf11
+  DB_USERNAME: b9427288030a37
+  DB_PASSWORD: 94134f40
+  DB_SOCKET: us-cdbr-iron-east-05.cleardb.net/heroku_d774e1d0228bf11 
+   #DB_SOCKET: /cloudsql/farmcorps:us-central1:farmcorps
 
 
 
