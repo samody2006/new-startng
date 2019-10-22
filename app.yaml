@@ -21,11 +21,11 @@ env_variables:
   DB_CONNECTION: mysql
   #CACHE_DRIVER: file
   #SESSION_DRIVER: file
-  DB_HOST: localhost
+  DB_HOST: remotemysql.com
   DB_PORT: 3306
-  DB_DATABASE: hngseven
-  DB_USERNAME: stanlab
-  DB_PASSWORD: 1234
+  DB_DATABASE: qpruF6R5WY
+  DB_USERNAME: qpruF6R5WY
+  DB_PASSWORD: nOmxn1n2Wy
   DB_SOCKET: /cloudsql/startng:us-central1:hngseven
   #DB_SOCKET: /cloudsql/farmcorps:us-central1:farmcorps
 
