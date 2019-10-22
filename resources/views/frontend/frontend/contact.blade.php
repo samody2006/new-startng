@@ -216,16 +216,7 @@
     <div class="container-fluid banner">
         <img src="https://res.cloudinary.com/sgnolebagabriel/image/upload/v1570908542/startng/Group_411_d0xdb8.png" class="img-fluid contact" height="100">
     </div>
-    <div class="container-fluid search pt-5 pb-5">
-        <div class="input-group col-12 col-md-10 mx-auto pt-3 pb-3">
-            <input type="text" class="form-control pt-4 pb-4" placeholder="Find answers now!" style="border: thin solid #fff; border-right-color: #44CF6C; border-radius: 4px;">
-            <div class="input-group-append">
-                <button class="btn btn-secondary w-100 px-md-5" type="button" style="background-color: #fff; color: #44CF6C; border-color: #fff; border-left-color: #44CF6C;">
-                    Search FAQ
-                </button>
-            </div>
-        </div>
-    </div>
+
     <div class="container-fluid mt-5">
         <div>
             @if(session('failed'))
