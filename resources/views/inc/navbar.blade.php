@@ -16,11 +16,7 @@
                         <a class="nav-link" href="{{route('courses.index')}}">Courses</a>
                     </li>
 
-                    @if(!Auth::guest())
-                        <li class="nav-item mr-5">
-                            <a class="btn btn-success nav-link px-5" href="{{route('mycourses',\Illuminate\Support\Facades\Auth::user()->id)}}" style="color: #fff;">My courses</a>
-                        </li>
-                    @endif
+                    
                     <li class="nav-item mr-5">
                         <a class="nav-link" href="{{route('hire')}}">Hire A Grad</a>
                     </li>
@@ -29,7 +25,18 @@
                     </li>
 
                     @if(!Auth::guest())
+                        @if(Auth::user()->role==0)
+                        <li class="nav-item mr-5">
+                            <a class="btn btn-success nav-link px-5" href="{{route('mycourses',\Illuminate\Support\Facades\Auth::user()->id)}}" style="color: #fff;">My courses</a>
+                        </li>
+                        @else
+                        <li class="nav-item mr-5">
+                            <a class="nav-link" href="{{route('admin')}}">Admin</a>
+                        </li>
+                        @endif
+                    @endif
 
+                    @if(!Auth::guest())
                         {{--<a class="btn btn-success nav-link px-5" href="{{ route('logout') }}" style="color: #fff;">Logout--}}
                         {{--</a>--}}
                         <a class="btn btn-success nav-link px-5" href="{{ route('logout') }}"
@@ -41,17 +48,16 @@
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                             @csrf
                         </form>
-
-
                     @endif
 
                     @if(Auth::guest())
                         <li class="nav-item mr-5">
-                            <a class="btn btn-success nav-link px-5" href="/signup" style="color: #fff;">Start
-                                Learning</a>
+                            <a class="btn btn-success nav-link px-5" href="{{ route('register') }}" style="color: #fff;">Register</a>
+                        </li>
+                        <li class="nav-item mr-5">
+                            <a class="btn btn-success nav-link px-5" href="{{ route('signin') }}" style="color: #fff;">Login</a>
                         </li>
                     @endif
-
                 </ul>
             </div>
         </div>
