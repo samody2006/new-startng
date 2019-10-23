@@ -7,41 +7,43 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0-11/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet">
-    <title>Login</title>
-
     <style>
-        body {
-            font-family: 'Nunito', sans-serif;
-        }
         /* Style for Navbar Starts */
-        
+
+        body {
+            font-family: Nunito;
+        }
+
         .navbar-custom li a {
             color: #000;
         }
-        
+
         .btn-success {
             background-color: #2DCE89;
             color: #fff;
             border: thin solid #2dce89;
         }
-        
+
         .btn-success:hover {
-            background-color: #2DCE89;
+            background-color: rgb(2, 20, 12);
             color: #fff;
-            border: thin solid #2dce89;
+            border: thin solid rgb(2, 20, 12);
+            cursor: pointer;
         }
-        
+
         .custom-toggler .navbar-toggler-icon {
             background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(0,0,0, 0.7)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
         }
-        
+
         .custom-toggler.navbar-toggler {
             border-color: #000;
         }
+
         /* Style for Navbar Ends */
         /* Style for Footer Starts */
-        
+
         * {
             box-sizing: border-box;
             margin: 0;
@@ -49,41 +51,42 @@
             box-sizing: border-box;
             font-family: 'Nunito', sans-serif;
         }
-        
+
         a {
             text-decoration: none;
         }
-        
+
         .deep {
             background: #3A0842;
             color: #fff;
         }
-        
+
         .deep #slink {
             background: #44CF6C;
             border-radius: 10px;
             color: white;
             padding: 10px 70px;
         }
-        
+
         .deep li a {
             text-decoration: none;
             color: #fff;
             font-size: 16px;
             line-height: 30px;
         }
-        
+
         .deep li {
             list-style: none;
         }
-        
+
         .deep li a:hover {
             text-decoration: none;
         }
-        
+
         a:hover {
             text-decoration: none;
         }
+
         .icons i {
             font-size: 26px;
             height: 50px;
@@ -91,79 +94,70 @@
             padding: 10px 20px;
             color: white;
         }
-        
+
         .icons i.fa.fa-twitter:hover {
             color: #00aced;
         }
-        
+
         .icons i.fa.fa-facebook:hover {
             color: #3b5598;
         }
-        
+
         .icons i.fa.fa-instagram:hover {
             color: #ed3833;
         }
+
         /* Style for Footer Ends */
-        /* Body Style */
+        /* Body Starts */
+
         
-        .banner {
-            background-color: #E5EBFF;
+        .pagination li a {
+            color: #3A0842;
         }
+        .header_btn {
+            color: #fff;
+            border: 1px solid #44CF6C;
+            padding: 5px 70px;
+            background: #44CF6C;
+            border-radius: 10px;
+        }
+        .header_btn:hover {
+            color: #44CF6C;
+            background: transparent;
+            transition: all .5s;
+        }
+        
+
+
+        .banner {
+            background-image: url('https://res.cloudinary.com/sgnolebagabriel/image/upload/v1570922862/startng/Group_413_dy6fmr.png');
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .pagination li a {
+            color: #3A0842;
+        }
+
+        .pagination li.active {
+            background-color: #3A0842;
+        }
+
+        /* Body Ends */
     </style>
 </head>
 
 <body>
     @include('../inc.navbar')
 
-    <div class="container-fluid banner">
-        <div class="container">
-            <div class="row align-items-center pt-5">
-                <div class="col-md-12 pb-5 text-center">
-                    <h4 class="" style="font-style: normal; font-weight: bold; font-size: 40px; letter-spacing: 0.655606px;">
-                        Welcome again!</h4>
-                    <p style="font-style: normal; font-weight: normal; font-size: 20px; line-height: 24px;">Log in using the form below and get started.</p>
-                </div>
-                
-            </div>
-        </div>
+    <div class="container-fluid">
+        
+    @include('inc.messages')
+    @yield('content')
+
     </div>
-<form action="{{ route('login') }}" method="post">
-    @csrf
-    <div class="container pt-4 pb-5">
-        <div class="row pt-5">
-            <div class="col-md-2"></div>
-            <div class="col-md-8">
-                <div class="form-group">
-                    <label for="usr" style="font-weight: bold;">Email:</label>
-                    <input type="text" name="email" class="form-control" id="usr" placeholder="Your Email Address" required>
-                </div>
-            </div>
-            <div class="col-md-2"></div>
-        </div>
 
-        <div class="row">
-            <div class="col-md-2"></div>
-            <div class="col-md-8">
-                <div class="form-group">
-                    <label for="usr" style="font-weight: bold;">Password:</label>
-                    <input type="password" name="password" class="form-control" id="usr" placeholder="Your Password" minlength="8" maxlength="21" required>
-                </div>
-            </div>
-            <div class="col-md-2"></div>
-        </div>
-
-        <div class="row mb-3">
-            <div class="col-md-2"></div>
-            <div class="col-md-3">
-                <input type="checkbox" name="remember" value="remember" id="check-me"> Remember me
-            </div>
-            <div class="col-md-3"></div>
-            <div class="col-md-4"><a href="#" class="forget-password">Forgot Password?</a> | <a href="{{route('signup')}}">Sign Up</a> </div>
-
-        </div>
-        <button type="submit" class="btn btn-success d-block mx-auto pl-5 pr-5 mb-4">Login</button>
-    </div>
-</form>
 
     <!-- Footer -->
     @include('../inc.footer')

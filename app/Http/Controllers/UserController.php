@@ -84,4 +84,9 @@ class UserController extends Controller
         return back()->with('success','User has been '.$title.' succesfully');
 
     }
+    
+    public function navbar(){
+        $user = User::all();
+        return view('inc.navbar')->with('user', $user);
+    }
 }
