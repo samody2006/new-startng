@@ -48,18 +48,14 @@
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                             @csrf
                         </form>
-
-
                     @endif
 
                     @if(Auth::guest())
                         <li class="nav-item mr-5">
-                            <a class="btn btn-success nav-link px-5" href="{{ route('register') }}" style="color: #fff;">Start
-                                Learning</a>
+                            <a class="btn btn-success nav-link px-5" href="{{ route('register') }}" style="color: #fff;">Register</a>
                         </li>
                         <li class="nav-item mr-5">
-                            <a class="btn btn-success nav-link px-5" href="{{ route('signin') }}" style="color: #fff;">Continue
-                                Learning</a>
+                            <a class="btn btn-success nav-link px-5" href="{{ route('signin') }}" style="color: #fff;">Login</a>
                         </li>
                     @endif
                 </ul>

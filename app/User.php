@@ -44,4 +44,8 @@ class User extends Authenticatable
     public function registercourse(){
         return $this->hasMany(RegisteredCourse::class);
     }
+
+    public function posts(){
+        return $this->hasMany(Blog::class);
+    }
 }
