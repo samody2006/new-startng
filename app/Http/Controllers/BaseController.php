@@ -15,7 +15,7 @@ class BaseController extends Controller
 {
     public function index()
     {
-        $courses = DB::table('courses')->paginate(6);
+        $courses = DB::table('courses')->where('active', 1)->get();
 
         return view('frontend.frontend.index',compact('courses'));
         
@@ -110,7 +110,8 @@ class BaseController extends Controller
         return view('frontend.frontend.hire');
     }
     public function courses()
-    {
+    {   $courses = DB::table('courses')->where('active', 1)->get();
+
         return view('frontend.frontend.courses');
     }
 
