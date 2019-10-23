@@ -119,8 +119,7 @@
 </head>
 
 <body>
-    @include('../inc.navbar')
-
+    @include('inc.navbar')
     <div class="container-fluid pt-5 pb-5 body-banner">
         <div class="col-md-12 mt-5 pt-5">
             <h4 class="text-center font-weight-bold mt-5 pt-5" style="color: #fff;">Our Courses</h4>
@@ -134,65 +133,19 @@
 
 
     <div class="container pt-5 pb-5">
+    @if(count($courses) > 0)
+        @foreach($courses as $course)
         <div class="row align-items-center mt-3">
             <div class="col-md-6 mt-5">
                 <img src="https://res.cloudinary.com/sgnolebagabriel/image/upload/v1570961660/startng/Group_414_l9x17w.png"
                     class="img-fluid">
             </div>
             <div class="col-md-6 mt-3">
-                <h4 class="font-weight-bold pb-3">Complete Beginner <br> Software Development Training</h4>
-                <p class="pb-2">Learn the basics of HTML and CSS with this quick and easy course.<br> If you're looking for a place to start your journey as a <br> web-developer, then look no further.<br>Also, you will learn all the other basics of the different courses that we offer
-                    <br> After this course, you’ll be set to explore the world of programming and web development<br> as you’ll be equipped with the major basics of all that software development entails.</p>
-                <div class="clearfix">  
-                    <div class="float-left">
-                        <a class="btn btn-success pt-1 pb-1" href="complete.html">More
-                            Details</a>
-                    </div>
-                    <div class="float-right">
-                        <a href="" style="color: #000;">Beginner</a>
-                        <a class="btn btn-success pt-1 pb-1"
-                            style="background-color: #9A75A0; color:#4B0955; border-color: #9A75A0;">REMOTE</a>
-                        <a class="btn btn-success pt-1 pb-1"
-                            style="background-color: #FFE797; color:#E3B82A; border-color: #FFE797;">FREE</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row align-items-center mt-4">
-            <div class="col-md-6 mt-5">
-                <h4 class="font-weight-bold pb-3 mt-5">UI/UX Design</h4>
-                <p class="pb-2">Learn about UX UI design at your own pace depending on your choice on how you intend to go about the learning. UI UX design means User interface design or user interface. it focuses on the design of user interfaces for machines and software, such as computers,home appliances, mobile devices, and other electronic devices, with the focus on maximizing usability and the user experience. The course would help to have a depth insight about how User experience (UX) designer can create products that provide meaningful and relevant experiences to users. This involves the design of the entire process of acquiring and integrating the product, including aspects of branding, design, usability, and function.</p>
+                <h4 class="font-weight-bold pb-3">{{ $course->name }}</h4>
+                <p class="pb-2">{{ $course->description }}</p>
                 <div class="clearfix">
                     <div class="float-left">
-                        <a class="btn btn-success pt-1 pb-1" href="#">More
-                            Details</a>
-                    </div>
-                    <div class="float-right">
-                        <a href="" style="color: #000;">Beginner</a>
-                        <a class="btn btn-success pt-1 pb-1"
-                            style="background-color: #9A75A0; color:#4B0955; border-color: #9A75A0;">REMOTE</a>
-                        <a class="btn btn-success pt-1 pb-1"
-                            style="background-color: #FFE797; color:#E3B82A; border-color: #FFE797;">FREE</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 mt-4">
-                <img src="https://res.cloudinary.com/sgnolebagabriel/image/upload/v1570961660/startng/Group_415_m3n0cq.png"
-                    class="img-fluid">
-            </div>
-
-        </div>
-        <div class="row align-items-center mt-3">
-            <div class="col-md-6 mt-5">
-                <img src="https://res.cloudinary.com/sgnolebagabriel/image/upload/v1570961660/startng/Group_416_wlg555.png"
-                    class="img-fluid">
-            </div>
-            <div class="col-md-6 mt-4">
-                <h4 class="font-weight-bold pb-3">Modern Javascript from Scratch</h4>
-                <p class="pb-2">Learn and build a product with JAVASCRIPT in no time with our route of training you. Modern JavaScript is a safe and secure programming language for you to build your first project. It is very good because when it's running in the browser, JavaScript is able to proceed anything related to web page manipulations, users' interactions and interactions with the server (to some extent). This is one of the best programming languages you can learn very fast and can as well help land your first product at ease. In many ways, JavaScript is one of the easiest programming languages to learn as your first language. The way that it functions as an interpreted language within the web browser means that you can easily write even the most complex code by writing it a small piece at a time and testing it in the web browser as you go. subscribe to this course to learn the depth of it. </p>
-                <div class="clearfix">
-                    <div class="float-left">
-                        <a class="btn btn-success pt-1 pb-1" href="javascript-course.html">More
+                        <a class="btn btn-success pt-1 pb-1" href="/courses/{{$course->id}}">More
                             Details</a>
                     </div>
                     <div class="float-right">
@@ -205,61 +158,10 @@
                 </div>
             </div>
         </div>
-        <div class="row align-items-center mt-3">
-            <div class="col-md-6 mt-5">
-                <h4 class="font-weight-bold pb-3 mt-5">Laravel PHP from Scratch</h4>
-                <p class="pb-2">Join this great platform to learn this wonderful. The course, Laravel PHP is a framework for creating web applications with an easy to use syntax. Taking this course would lead you to have deep idea behind Laravel PHP. Laravel PHP will make common development tasks easy such as routing, authentication, sessions, and caching. Laravel is a free, open-source PHP web framework, created by Taylor Otwell and intended for the development of web applications following the model–view–controller architectural pattern and based on Symfony. Subscribing to this course will lead you to be able to use laravel PHP curve, Incredible Eloquent ORM, Clear and humane syntax in most of components, Flexibility, Integration with front-end out of the box.</p>
-                <div class="clearfix">
-                    <div class="float-left">
-                        <a class="btn btn-success pt-1 pb-1" href="laravel.html">More
-                            Details</a>
-                    </div>
-                    <div class="float-right">
-                        <a href="" style="color: #000;">Beginner</a>
-                        <a class="btn btn-success pt-1 pb-1"
-                            style="background-color: #9A75A0; color:#4B0955; border-color: #9A75A0;">REMOTE</a>
-                        <a class="btn btn-success pt-1 pb-1"
-                            style="background-color: #FFE797; color:#E3B82A; border-color: #FFE797;">FREE</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 mt-4">
-                <img src="https://res.cloudinary.com/sgnolebagabriel/image/upload/v1570961660/startng/Group_417_akfrop.png"
-                    class="img-fluid">
-            </div>
-
-        </div>
-        <div class="row align-items-center mt-3">
-            <div class="col-md-6 mt-5">
-                <img src="https://res.cloudinary.com/sgnolebagabriel/image/upload/v1570961660/startng/Group_418_ranmxy.png"
-                    class="img-fluid">
-            </div>
-            <div class="col-md-6 mt-3">
-                <h4 class="font-weight-bold pb-3">Full Stack Developer</h4>
-                <p class="pb-2">Subscribe to this course to have a great knowledge mostly about frontend and backend track at ease. You might be wondering what a full stack developer is all about before you agree with yourself if it is your track like, is an engineer who can handle all the work of databases, servers, systems engineering, and clients. Depending on the project, what customers need may be a mobile stack, a Web stack, or a native application stack. Subscribe to learn more. Here are the things that this course would reveal to you through our experience mentors on job<br>
-<li> Front-end technology. ...</li>
-<li> Development Languages. ...</li>
-<li>Database and cache. ...</li>
-<li>Basic design ability. ...</li>
-<li>Server. ...</li>
-<li>Version control system (VCS) ...</li>
-<li>Working with API (REST & SOAP): ...</li>
-<li>Other Pieces of the Puzzle</li> </p>
-                <div class="clearfix">
-                    <div class="float-left">
-                        <a class="btn btn-success pt-1 pb-1" href="fullstack.html">More
-                            Details</a>
-                    </div>
-                    <div class="float-right">
-                        <a href="" style="color: #000;">Beginner</a>
-                        <a class="btn btn-success pt-1 pb-1"
-                            style="background-color: #9A75A0; color:#4B0955; border-color: #9A75A0;">REMOTE</a>
-                        <a class="btn btn-success pt-1 pb-1"
-                            style="background-color: #FFE797; color:#E3B82A; border-color: #FFE797;">FREE</a>
-                    </div>
-                </div>
-            </div>
-        </div>
+        @endforeach
+    @else 
+    <p>No course uploaded yet. Please check back later</p>
+    @endif
     </div>
     <div class="container-fluid">
         <img class="img-fluid"
@@ -274,8 +176,7 @@
         </div>
     </div>
 
-    <!-- Footer -->
-    @include('../inc.footer')
+    @include('inc.footer')
 
     <!-- End of Footer -->
 
