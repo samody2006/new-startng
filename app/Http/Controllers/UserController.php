@@ -15,7 +15,7 @@ class UserController extends Controller
         $this->middleware('auth');
     }
     public function show(){
-        $users = User::where('role', '0')->get();
+        $users =DB::table('users')->get();
 
         return view('admin.users',compact('users'));
     }
@@ -37,18 +37,18 @@ class UserController extends Controller
 
 
             else{
-                $courses=array('no course registered');
+                $courses=[];
             }
 
 
-            $user=DB::table('users')->where('id',$id)->where('role', 0)->get()[0];
+            $user=DB::table('users')->where('id',$id)->get()[0];
 
 
         }
         else{
 
         }
-        return view('admin.user_detail',compact('user','courses'));
+        return view('admin.userDetails',compact('user','courses'));
     }
 
     public function destroy($id)
@@ -75,8 +75,8 @@ class UserController extends Controller
             return back()->with('error','User Does not exist');
         }
 
-        $user->role = ($user->active == 0) ? 1 : 0;
-        $title = ($user->active == 1) ? "enabled" : "disabled";
+        $user->role = ($user->role == 0) ? 1 : 0;
+        $title = ($user->role == 1) ? "enabled" : "disabled";
 
 
         $user->save();

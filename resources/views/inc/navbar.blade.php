@@ -25,15 +25,11 @@
                     </li>
 
                     @if(!Auth::guest())
-                        @if(Auth::user()->role==0)
+
+
                         <li class="nav-item mr-5">
-                            <a class="btn btn-success nav-link px-5" href="{{route('mycourses',\Illuminate\Support\Facades\Auth::user()->id)}}" style="color: #fff;">My courses</a>
+                            <a class="btn btn-success nav-link px-5" href="/mycourses/{{\Illuminate\Support\Facades\Auth::user()->id}}" style="color: #fff;">My courses</a>
                         </li>
-                        @else
-                        <li class="nav-item mr-5">
-                            <a class="nav-link" href="{{route('admin')}}">Admin</a>
-                        </li>
-                        @endif
                     @endif
 
                     @if(!Auth::guest())

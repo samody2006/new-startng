@@ -156,6 +156,12 @@
         <h4 class="text-center" style="color: #3A0842;">Your Registered Courses</h4>
         <hr>
 
+        @if(!empty($message))
+            <div class="text-center alert alert-info">
+                <p>{{$message}}</p>
+            </div>
+            @endif
+
         @if (session('success'))
             <div class="alert alert-success">
                 {!!  session('success') !!}
@@ -171,11 +177,9 @@
         $counter=3;
 
         @endphp
-
+        <div class="row">
         @foreach($courses as $item)
-            @if($counter%3==0)
-                <div class="row">
-                @endif
+
                     <div class="col-md-4">
                         <div class="card">
                             <img class="card-img-top"
@@ -196,12 +200,10 @@
                         </div>
                     </div>
 
-                    @if($counter%3==0)
-                        </div>
-                            @endif
+
 
             @endforeach
-
+        </div>
             {{--<div class="col-md-4">--}}
                 {{--<div class="card">--}}
                     {{--<img class="card-img-top"--}}

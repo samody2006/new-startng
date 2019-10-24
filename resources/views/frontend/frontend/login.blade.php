@@ -128,8 +128,19 @@
         </div>
     </div>
 <form action="{{ route('login') }}" method="post">
+
+
     @csrf
     <div class="container pt-4 pb-5">
+        @if ($errors->any())
+            <div class="alert text-center alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
         <div class="row pt-5">
             <div class="col-md-2"></div>
             <div class="col-md-8">

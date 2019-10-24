@@ -43,11 +43,20 @@ Route::group(['middleware' => ['auth', 'admin']], function() {
     Route::get('/users/{id}', 'UserController@user')->name('user.details');
     Route::get('/course/{id}', 'CourseController@course')->name('course.details');
     Route::post('/course', 'CourseController@store')->name('course.store');
+
+    //Forgot password
+    Route::get('password/reset', 'ForgotPasswordController@showLinkRequestForm')->name('password.reset');
+    Route::post('password/email','ForgotPasswordController@sendResetLinkEmail')->name('password.email');
+    Route::get('password/rest/{token}', 'ResetPasswordController@showRequestForm')->name('password.reset.token');
+    Route::post('password/reset', 'ResetPasswordController@reset');
 });
 
 
 
 Route::post('/search-course', 'BaseController@search')->name('course.search');
+
+
+
 
 
 

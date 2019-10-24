@@ -53,11 +53,13 @@ class CourseController extends Controller
 
         if($check){
             $course=DB::table('courses')->where('id',$id)->get()[0];
+            $total=DB::table('registered_courses')->where('id',$id)->count();
 
-            return view('admin.course_detail',compact('course'));
+
+            return view('admin.course_detail',compact('course','total'));
         }
         else{
-
+            return back()->with('error','Course Does Not Exist');
         }
     }
 
