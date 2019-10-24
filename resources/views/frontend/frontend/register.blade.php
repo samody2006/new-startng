@@ -291,6 +291,15 @@
     <div class="container pt-4 pb-5">
   
   <form  action="{{ route('register') }}" method="post">
+      @if ($errors->any())
+          <div class="alert text-center alert-danger">
+              <ul>
+                  @foreach ($errors->all() as $error)
+                      <li>{{ $error }}</li>
+                  @endforeach
+              </ul>
+          </div>
+      @endif
 
             @csrf
 

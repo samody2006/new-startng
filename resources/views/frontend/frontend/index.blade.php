@@ -264,7 +264,7 @@
     </div>
 </div>
 
-< <!--  -->
+<!--  -->
         <section class="journey">
             <div class="container py-5">
                 <div class="row d-flex">
@@ -278,11 +278,11 @@
                         <p class="my-4 text-muted">
                             The HNG internship is a 3-month remote internship designed to find and develop the most talented software developers. Everyone is welcome to participate (there is no entrance exam). Anyone can log into the internship using their laptop. Each week, we give tasks. 
                         </p>
-                        <form class="my-4">
-                            <div class="form-group w-75 mt-3">
-                                <input type="text" name="searchCourses" class="form-control" required>
-                            </div>
-                            <button class="btn btn-secondary py-2 px-4 mt-3"><i class="fas fa-search"></i> Find a Course</button>
+                        <form action="{{route('course.search')}}" method="post" >
+                            @csrf
+                            <input type="text" name="course" class="form-control col-md-10 mb-3" placeholder="Type in your preferred course">
+                            <button type="submit" class="btn btn-success pl-5 pr-5 mb-3">  Find A Course</button>
+
                         </form>
                     </div>
                 </div>
@@ -296,31 +296,15 @@
             {!! session('message') !!}
         </div>
     @endif
-    @if (session('success'))
-        <div class="alert alert-success">
-            {!!  session('success') !!}
-        </div>
-    @endif
-    @if (session('error'))
-        <div class="alert alert-danger">
-            {{ session('error') }}
-        </div>
-    @endif
+
     @if (session('warning'))
         <div class="alert alert-warning">
             {!! session('warning') !!}
 
         </div>
     @endif
-    @if ($errors->any())
-        <div class="alert alert-danger">
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-    @endif
+
+
 </div>
 
 <div class="container mt-5">
@@ -328,42 +312,71 @@
     <hr>
 
     @php
-        $counter=3;
+        $counter=4;
     @endphp
 
-    @foreach($courses as $item)
-        @if($counter%3==0)
-            <div class="row">
-                @endif
-                <div class="col-md-4">
-                    <div class="card">
-                        <img class="card-img-top"
-                             src="https://res.cloudinary.com/sgnolebagabriel/image/upload/v1570927379/startng/Rectangle_44_w9fioh.png"
-                             alt="Card image">
-                        <div class="card-body">
-                            <h4 class="card-title" style="font-weight: bold;">{{$item->name}}</h4>
-                            <p>{{$item->description}}</p>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked mb-3"></span> <br>
-                            @if(Auth::guest())
-                                <a href="/signup" class="btn btn-primary pr-3 pl-3 pt-1 pb-1"
-                                   style="background-color: #9A75A0; border: thin solid #9A75A0;">Register</a>
-                            @endif
-                            @if(!Auth::guest())
-                                <a href="{{route('register.courses',$item->id)}}" class="btn btn-primary pr-3 pl-3 pt-1 pb-1"
-                                   style="background-color: #9A75A0; border: thin solid #9A75A0;">Register</a>
-                            @endif
-                            <a href="{{route('details',$item->id)}}" class="btn btn-primary pr-3 pl-3 pt-1 pb-1"
-                               style="background-color: #FFE797; border: thin solid #FFE797;">Details</a>
-                        </div>
+    @if (session('success'))
+        <div class=" text-center alert alert-success">
+            {!!  session('success') !!}
+        </div>
+    @endif
+    @if (session('error'))
+        <div class="text-center alert alert-warning">
+            {{ session('error') }}
+        </div>
+    @endif
+
+    <div class="row">
+
+        @foreach($courses as $item)
+            <div class="col-md-4">
+                <div class="card">
+                    <img class="card-img-top"
+                         src="https://res.cloudinary.com/sgnolebagabriel/image/upload/v1570927379/startng/Rectangle_44_w9fioh.png"
+                         alt="Card image">
+                    <div class="card-body">
+                        <h4 class="card-title" style="font-weight: bold;">{{$item->name}}</h4>
+                        <p>{{$item->description}}</p>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked mb-3"></span> <br>
+                        @if(Auth::guest())
+                            <a href="{{route('register.courses',$item->id)}}" class="reg btn btn-primary pr-3 pl-3 pt-1 pb-1"
+                               style="background-color: #9A75A0; border: thin solid #9A75A0;">Register</a>
+                        @endif
+                        @if(!Auth::guest())
+                            <a href="{{route('register.courses',$item->id)}}" class="btn btn-primary pr-3 pl-3 pt-1 pb-1"
+                               style="background-color: #9A75A0; border: thin solid #9A75A0;">Register</a>
+                        @endif
+                        <a href="{{route('details',$item->id)}}" class="btn btn-primary pr-3 pl-3 pt-1 pb-1"
+                           style="background-color: #9A75A0; border: thin solid #FFE797;">Details</a>
                     </div>
                 </div>
 
-                @if($counter%3==0)
             </div>
+
+            @if($counter%3==0) <br>   @endif
+
+            @php
+                $counter+=1;
+            @endphp
+
+        @endforeach
+    </div>
+    <br>
+
+    <div class="text-center">
+        <a href="{{route('courses.index')}}">
+            <button class="btn btn-primary    pt-3">
+                View More Courses
+            </button>
+        </a>
+    </div>
+    <br>
+    <!--  -->
+<br>
         @endif
 
     @endforeach
@@ -425,6 +438,7 @@
 <div class="container">
 {{$courses->links()}}
 </div>
+
  <!--  -->
         <section class="beginning-lesson">
             <div class="row no-gutters">
@@ -564,7 +578,7 @@
                 </div>
             </div>
         </section>
-        <!--  -->
+<!--  -->
     <div class="col-md-6 offset-md-3 text-center pt-5 pb-5">
      <h4 class="my-4 font-weight-bold">Online or Offline, We Are Here For You</h4>
         <p>The HNG internship is a 3-month remote internship designed to find and develop the most talented software

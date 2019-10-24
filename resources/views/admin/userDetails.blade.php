@@ -13,9 +13,7 @@
     <!-- Bootstrap core CSS -->
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
-    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
-
     <!-- Custom styles for this template -->
     <style>
         body {
@@ -80,7 +78,7 @@
     <div class="d-flex" id="wrapper">
 
         <!-- Sidebar -->
-        @include('inc.sidebar')
+    @include('inc.sidebar')
         <!-- /#sidebar-wrapper -->
 
         <!-- Page Content -->
@@ -105,7 +103,7 @@
             </nav>
 
             <div class="table-responsive col-md-10 offset-md-1 mt-5">
-                <h2 class="text-center mb-5">Course DETAILS</h2>
+                <h2 class="text-center mb-5">USER DETAILS</h2>
                 <div>
                     @if(session('failed'))
                         <div class="text-center alert alert-danger">
@@ -124,43 +122,61 @@
                 </div>
                 <table class="table">
                     <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Price</th>
-                        <th>Duration</th>
-                        <th>Description</th>
-                        <th>Student Registered</th>
-                        <th>Action</th>
-                    </tr>
+                        <tr>
+                            <th>Name</th>
+                            <th>Phone</th>
+                            <th>Email</th>
+                            <th>Category</th>
+                            <th>Course Registered</th>
+                            <th>Action</th>
+                        </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <td> {{$course->name}}</td>
-                        <td>{{$course->price}}</td>
-                        <td>{{$course->duration}}</td>
-                        <td>
-                            {{$course->description}}
-                        </td>
-                        <td>
-                         {{$total}}
-                        </td>
-                        <td>
-                            @if($course->active)
-                                <a href="{{route('course.disable',$course->id)}}"> <button class="btn btn-danger" >Disable</button> </a>
-                            @endif
-                            @if(!$course->active)
-                                <a href="{{route('course.disable',$course->id)}}"> <button class="btn btn-info" >Enable</button> </a>
-                            @endif
+                        <tr>
+                            <td> {{$user->name}}</td>
+                            <td>{{$user->phone}}</td>
+                            <td>{{$user->email}}</td>
+                            <td>
+                                @if($user->role)
+                                    Admin
+                                @endif
+                                    @if(!$user->role)
+                                        Student
+                                    @endif
+                            </td>
+                            <td>
+                                <ul>
+                                    @if(empty($courses))
+                                        <li>No Course Registered</li>
+                                    @endif
+                                    @if(!empty($courses))
+                                            @foreach($courses as $item)
+                                                <li>{{$item}}</li>
+                                            @endforeach
+                                        @endif
 
-                        </td>
-                    </tr>
+
+                                </ul>
+                            </td>
+                            <td>
+                                @if($user->role)
+                                    <div>
+                                        <a class=" btn btn-info btn-medium" href="{{route('user.disableAdmin',$user->id)}}" >Disable Admin Features</a>
+                                    </div>
+                                @endif
+                                @if(!$user->role)
+                                    <div>
+                                        <a class=" btn btn-primary btn-medium" href="{{route('user.disableAdmin',$user->id)}}" >Enable Admin Features</a>
+                                    </div>
+                                @endif
+
+                            </td>
+                        </tr>
 
 
                     </tbody>
                 </table>
             </div>
-
-
 
         </div>
         <!-- /#page-content-wrapper -->

@@ -32,17 +32,17 @@ class BaseController extends Controller
 
             if($post){
                 $message='You Have Previously Registered for the Course';
-                Flash::error($message);
-                return back();
+                $type='error';
             }
             else{
                 $result=auth()->user()->registercourse()->create([
                    "course_id"=>$id
                 ]);
-                $message='Registration was Succesfull';
-                Flash::success($message);
-                return back();
+                $type='success';
+                $message='Registration was Succesfull. Check Mycourses Page for more details.';
             }
+
+            return back()->with($type,$message);
         }
         else{
             $message='Course Does Not Exist';
@@ -110,6 +110,7 @@ class BaseController extends Controller
         return view('frontend.frontend.hire');
     }
     public function courses()
+
     {   $courses = DB::table('courses')->where('active', 1)->get();
 
         return view('frontend.frontend.courses');
@@ -159,19 +160,25 @@ class BaseController extends Controller
 
                     array_push($courses, (array)$output);
                 }
+                $message='';
 
-                return view('frontend.frontend.mycourses',compact('courses'));
+                return view('frontend.frontend.mycourses',compact('courses','message'));
             }
 
             else{
               $message="no registered course";
-                return redirect('mycourse')->with('error',$message);
+                $courses=[];
+                return view('frontend.frontend.mycourses',compact('courses','message'));
+
             }
+
             $user=DB::table('users')->where('id',$id)->get()[0];
         }
         else{
+            $courses=[];
             $message='user does not exist';
-            return redirect('mycourse')->with('error',$message);
+            return view('frontend.frontend.mycourses',compact('courses','message'));
+            return redirect('mycourses')->with('error',$message);
         }
 
     }
