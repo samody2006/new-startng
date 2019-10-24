@@ -357,9 +357,6 @@
 
             </div>
 
-
-
-
             @if($counter%3==0) <br>   @endif
 
             @php
@@ -380,6 +377,68 @@
     <br>
     <!--  -->
 <br>
+        @endif
+
+    @endforeach
+    
+
+    {{--<div class="col-md-4">--}}
+    {{--<div class="card">--}}
+    {{--<img class="card-img-top"--}}
+    {{--src="https://res.cloudinary.com/sgnolebagabriel/image/upload/v1570927379/startng/Rectangle_44_w9fioh.png"--}}
+    {{--alt="Card image">--}}
+    {{--<div class="card-body">--}}
+    {{--<h4 class="card-title" style="font-weight: bold;">Backend Development</h4>--}}
+    {{--<p>Learn the fundamentals of <br> Modern Backend ...</p>--}}
+    {{--<span class="fa fa-star checked"></span>--}}
+    {{--<span class="fa fa-star checked"></span>--}}
+    {{--<span class="fa fa-star checked"></span>--}}
+    {{--<span class="fa fa-star checked"></span>--}}
+    {{--<span class="fa fa-star checked mb-3"></span> <br>--}}
+    {{--<a href="#" class="btn btn-primary pr-3 pl-3 pt-1 pb-1"--}}
+    {{--style="background-color: #9A75A0; border: thin solid #9A75A0;">Register</a>--}}
+    {{--<a href="#" class="btn btn-primary pr-3 pl-3 pt-1 pb-1"--}}
+    {{--style="background-color: #FFE797; border: thin solid #FFE797;">Details</a>--}}
+    {{--</div>--}}
+    {{--</div>--}}
+    {{--</div>--}}
+
+
+
+
+
+    {{--<div class="row mb-5">--}}
+    {{----}}
+    {{--<div class="col-md-4">--}}
+    {{--<div class="card">--}}
+    {{--<img class="card-img-top"--}}
+    {{--src="https://res.cloudinary.com/sgnolebagabriel/image/upload/v1570927379/startng/Rectangle_44_w9fioh.png"--}}
+    {{--alt="Card image">--}}
+    {{--<div class="card-body">--}}
+    {{--<h4 class="card-title" style="font-weight: bold;">Backend Development</h4>--}}
+    {{--<p>Learn the fundamentals of <br> Modern Backend ...</p>--}}
+    {{--<span class="fa fa-star checked"></span>--}}
+    {{--<span class="fa fa-star checked"></span>--}}
+    {{--<span class="fa fa-star checked"></span>--}}
+    {{--<span class="fa fa-star checked"></span>--}}
+    {{--<span class="fa fa-star checked mb-3"></span> <br>--}}
+    {{--<a href="#" class="btn btn-primary pr-3 pl-3 pt-1 pb-1"--}}
+    {{--style="background-color: #9A75A0; border: thin solid #9A75A0;">ONLINE</a>--}}
+    {{--<a href="#" class="btn btn-primary pr-3 pl-3 pt-1 pb-1"--}}
+    {{--style="background-color: #FFE797; border: thin solid #FFE797;">FREE</a>--}}
+    {{--</div>--}}
+    {{--</div>--}}
+    {{--</div>--}}
+
+
+    {{--</div>--}}
+</div>
+<br>
+<!----pagination/---->
+<div class="container">
+{{$courses->links()}}
+</div>
+
  <!--  -->
         <section class="beginning-lesson">
             <div class="row no-gutters">

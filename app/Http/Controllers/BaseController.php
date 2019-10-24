@@ -15,7 +15,7 @@ class BaseController extends Controller
 {
     public function index()
     {
-        $courses = DB::table('courses')->take(6)->get();
+        $courses = DB::table('courses')->where('active', 1)->get();
 
         return view('frontend.frontend.index',compact('courses'));
         
@@ -110,9 +110,10 @@ class BaseController extends Controller
         return view('frontend.frontend.hire');
     }
     public function courses()
-    {
-        $course=DB::table('courses')->get();
-        return view('frontend.frontend.newcourses',compact('course'));
+
+    {   $courses = DB::table('courses')->where('active', 1)->get();
+
+        return view('frontend.frontend.courses');
     }
 
     public function privacy(){
