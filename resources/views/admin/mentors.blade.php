@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Admin</title>
+    <title>Admin | Dashboard</title>
 
     <!-- Bootstrap core CSS -->
 
@@ -109,10 +109,11 @@
                     <thead>
                         <tr>
                             <th>Name</th>
-
+                            <th>Phone</th>
                             <th>Email</th>
+                            <th>Location</th>
+                            <th>Action</th>
 
-                            <th></th>
                         </tr>
                     </thead>
                     <tbody>

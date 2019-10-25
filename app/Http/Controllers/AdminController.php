@@ -20,7 +20,7 @@ class AdminController extends Controller
      */
     public function index()
     {
-        $mentors = User::where('role', '1')->get();
+        $mentors = admin::where('role', '1')->get();
         return view('admin.mentors')->with('mentors', $mentors);
     }
 
@@ -41,7 +41,7 @@ class AdminController extends Controller
             'password' => 'required'
         ]);
 
-        $mentor = new User;
+        $mentor = new admin;
         $mentor->name = $request->input('name');
         $mentor->email = $request->input('email');
         $mentor->phone = $request->input('phone');
@@ -50,7 +50,7 @@ class AdminController extends Controller
         $mentor->state = $request->input('phone');
         $mentor->save();
 
-        return back()->with('success','Mentor Successfully Created');
+        return back()->with('success','Admin Successfully Created');
 
     }
 
@@ -62,7 +62,7 @@ class AdminController extends Controller
      */
     public function show($id)
     {
-        $mentor = User::find($id);
+        $mentor = admin::find($id);
         return view('admin.mentor_detail')->with('mentor', $mentor);
     }
 
@@ -97,9 +97,9 @@ class AdminController extends Controller
      */
     public function destroy($id)
     {
-        $mentor = User::find($id);
+        $mentor = admin::find($id);
         if (empty($mentor)) {
-            Flash::error('Mentor not found');
+            Flash::error('Admin not found');
             return redirect(route('mentors.index'));
         }
 

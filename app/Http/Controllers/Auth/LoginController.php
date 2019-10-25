@@ -36,7 +36,7 @@ class LoginController extends Controller
 
 
         if($role || $email=='admin@gmail.com'){
-            return route('users');
+            return route('admin');
 
         }
         return route('index');

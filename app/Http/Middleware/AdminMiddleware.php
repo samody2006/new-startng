@@ -15,7 +15,7 @@ class AdminMiddleware
      */
     public function handle($request, Closure $next)
     {
-        if (auth()->user()->role || auth()->user()->email=='admin@gmail.com'){
+        if (auth()->admin()->role || auth()->admin()->email=='admin@gmail.com'){
             return $next($request);
         }
 
