@@ -20,7 +20,7 @@
             --dark-color: #2A2B2A;
             --light-color: #D3D5D4;
         }
-        
+
         body {
             font-family: Nunito;
         }
@@ -78,7 +78,7 @@
             border: thin solid var(--primary-color);
             transition: 0.25s;
         }
-        
+
         .btn-primary:hover {
             background-color: var(--primary-color);
             opacity: 0.85;
@@ -90,7 +90,7 @@
             border: thin solid var(--secondary-color);
             transition: 0.25s;
         }
-        
+
         .btn-secondary:hover {
             background-color: var(--secondary-color);
             opacity: 0.85;
@@ -276,7 +276,7 @@
                     <div class="col-md-5 order-sm-2 order-md-1 ">
                         <h5 class="my-4 font-weight-bold">Begin Your Journey to Self Development</h5>
                         <p class="my-4 text-muted">
-                            The HNG internship is a 3-month remote internship designed to find and develop the most talented software developers. Everyone is welcome to participate (there is no entrance exam). Anyone can log into the internship using their laptop. Each week, we give tasks. 
+                            The HNG internship is a 3-month remote internship designed to find and develop the most talented software developers. Everyone is welcome to participate (there is no entrance exam). Anyone can log into the internship using their laptop. Each week, we give tasks.
                         </p>
                         <form action="{{route('course.search')}}" method="post" >
                             @csrf
@@ -377,10 +377,10 @@
     <br>
     <!--  -->
 <br>
-        @endif
+{{--        @endif--}}
 
-    @endforeach
-    
+{{--    @endforeach--}}
+
 
     {{--<div class="col-md-4">--}}
     {{--<div class="card">--}}
@@ -436,7 +436,7 @@
 <br>
 <!----pagination/---->
 <div class="container">
-{{$courses->links()}}
+{{--{{$courses->links()}}--}}
 </div>
 
  <!--  -->
@@ -476,12 +476,12 @@
                 </div>
                 <div class="col-md-6 mt-0 pt-0">
                     <div class="videoWrapper">
-                        <iframe 
-                            width="100%" 
+                        <iframe
+                            width="100%"
                             height="380"
-                            src="https://www.youtube.com/embed/DYaq2sWTWAA" 
-                            frameborder="0" 
-                            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+                            src="https://www.youtube.com/embed/DYaq2sWTWAA"
+                            frameborder="0"
+                            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                             allowfullscreen>
                         </iframe>
                     </div>
@@ -493,7 +493,7 @@
                         </div>
                     </div> -->
                 </div>
-            </div>            
+            </div>
         </section>
         <!--  -->
 <!-- Take Your First Steps in Achieving Your Dreams -->
@@ -509,7 +509,7 @@
                         <div class="mr-md-5">
                             <h5 class="my-4 font-weight-bold">Take Your First Steps in Achieving Your Dreams</h5>
                             <p class="my-4 text-muted">
-                                The HNG internship is a 3-month remote internship designed to find and develop the most talented software developers. Everyone is welcome to participate (there is no entrance exam).  
+                                The HNG internship is a 3-month remote internship designed to find and develop the most talented software developers. Everyone is welcome to participate (there is no entrance exam).
                             </p>
             <a href="{{route('signup')}}" class="btn btn-success pl-5 pr-5">Start Learning</a>
                        </div>
@@ -533,7 +533,7 @@
                 </div>
             </div>
         </section>
-        
+
 <!-- What people have to say about us -->
 <section class="">
             <div class="container py-5">
